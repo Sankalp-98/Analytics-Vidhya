@@ -1,0 +1,11 @@
+from catboost import CatBoostClassifier
+model=CatBoostClassifier()
+
+categorical_feature_indices=np.where(df.dtypes!=np.float)[0]
+
+model.fit(X_train,y_train,cat_features=categorical_feature_indices,eval_set=(X_test,y_test))
+
+model.score(X_test,y_test)
+
+
+Similarly, we can use CatBoostRegressor for regression problems

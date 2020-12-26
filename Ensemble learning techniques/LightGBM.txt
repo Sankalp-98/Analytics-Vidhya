@@ -1,0 +1,8 @@
+import lightgbm as lgb
+train_data=lgb.Dataset(x_train,label=y_train)
+
+params={'learning_rate':0.001}
+
+model=lgb.train(params,train_data,100)
+
+y_pred=model.predict(x_test)
